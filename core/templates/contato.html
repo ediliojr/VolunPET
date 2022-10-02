@@ -1,0 +1,58 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/contato.css' %}">
+  <title>Volunpet | Contato</title>
+</head>
+<body>
+
+  <header>
+    <div class="texto-header">
+      <a href="/">
+        <h2>Volunpet</h2>
+      </a>
+    </div>
+    <input class="search__header" type="text" name="search" id="search" placeholder="Pesquisar...">
+    <nav>
+      <ul>
+        <a href="/contato"><li>Contato</li></a>
+        <a href="/post"><li>Postar</li></a>
+        <a href="/login"><li class="login">Login</li></a>
+        <a href="/cadastro"><li class="login">Registrar</li></a>
+        {% if user.is_authenticated%}
+        <a href="/logout"><li class="login">Logout</li></a>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+
+  <h1 style="margin-top: 60px; margin-left: 60px;">Contato</h1>
+
+  <section >
+    <main class="main__container">
+      <div class="contato__container">
+        <form class="form__container" action="">
+          <h4>Entre em contato com a Volunpet para tirar dúvidas ou sugerir melhorias</h4>
+          <label for="nome"></label>
+          <input type="text" name="nome" id="nome" placeholder="Nome">
+          <label for="email"></label>
+          <input type="email" name="email" id="email" placeholder="Email">
+          <textarea name="" id="" rows="10" placeholder="Escreva aqui..."></textarea>
+
+          <input class="botao__formulario" type="submit" value="Enviar email">
+        </form>
+      </div>
+
+    </main>
+  </section>
+
+
+  <footer>
+    <p>Criado por alunos da Sirius | Todos os direitos reservados</p>
+  </footer>
+</body>
+</html>

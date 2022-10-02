@@ -1,0 +1,26 @@
+{% load bootstrap5%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% bootstrap_messages %}
+{% comment %} {% for message in messages %} {% endcomment %}
+  <p><strong>{{message}}</strong><p>
+    {% comment %} {% endfor %} {% endcomment %}
+<body>
+    
+    <form action="/submit" method="post" class="form" autocomplete="off" encrypte="">
+    {% csrf_token %}
+    {% comment %} {%bootstrap_form form%} {% endcomment %}
+    <label for="imagem"> insira sua imgaem </label><br>
+    <input type="file" name="imagem"  accept="imagem/" value=""><br>
+    <label for="post"> Adicione o texto de sua postagem </label><br>
+    <input type="text" name="post" value=""><br>
+    <input type="submit" class="btn btn-primary" value="Submit">
+</form>   
+</body>
+</html>

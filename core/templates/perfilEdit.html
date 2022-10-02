@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="../static/css/perfil.css"> -->
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <div class="texto-header">
+      <a href="/">
+        <h2>Volunpet</h2>
+      </a>
+    </div>
+    <input class="search__header" type="text" name="search" id="search" placeholder="Pesquisar...">
+    <nav>
+      <ul>
+        <a href="/contato"><li>Contato</li></a>
+        <a href="/post"><li>Postar</li></a>
+
+        {% if user.is_authenticated%}
+        <a class="nav-link">bem vindo, {{user.username}}</a>
+        <a href="/logout"><li class="login">Logout</li></a> <br>
+
+        {% else %}
+        <a href="/register"><li>Registrar</li></a>
+        <a href="/login"><li class="login">Login</li></a>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+
+  <h1 style="margin-top: 60px; margin-left: 60px;">Perfil do usuário</h1>
+
+  <main>
+    <div class="main__picture">
+      <img src="/media/profile.png" alt="Imagem de perfil">
+      <label for="arquivo">Trocar imagem <span class="small">(JPG ou PNG limite de 5MB)</span></label>
+      <input id="arquivo" type="file" value="Upload imagem">
+    </div>
+
+    <!-- EDITAR PERFIL DO USUÁRIO -->
+    <div class="main__form">
+
+      <form action="/update_perfil/{{db.id}}/" method="post">
+        {% csrf_token %}
+
+       <div class="form-group mt-4 novo_form" >nome: {{form.first_name}}</div>
+        <div class="form-group mt-4 novo_form">sobrenome: {{form.last_name}}</div>
+        <div class="form-group mt-4 novo_form">email: {{form.email}}</div>
+
+        <!-- <label class="small" for="pnome">Nome (Como seu nome aparecerá para outros usuários do site)</label>
+        <input type="text" id="pnome" name="pnome" placeholder="Seu lindo nome aqui">
+        <label class="small" for="snome">Sobrenome</label>
+        <input type="text" id="snome" name="snome" placeholder="Sobrenome de gente famosa">
+        <label class="small" for="cidade">Cidade</label>
+        <input type="text" id="cidade" name="cidade" placeholder="Cidade">
+        <label class="small" for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Seu email para contato">
+        <label class="small" for="telefone">Telefone</label>
+        <input type="tel" id="telefone" name="telefone" pattern="\[0-9]{2}\[0-9]{5}-[0-9]{4}" placeholder="00 000000000"> -->
+        <button class="botao__form" type="submit">Salvar</button>
+      </form>
+    </div>
+  </main>
+
+</body>
+
+
+<style>
+  * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+.novo_form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 10px;
+}
+h1,
+h2,
+h3,
+h4 {
+  color: rgb(73, 73, 73);
+}
+
+
+/* Header */
+header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: rgb(111, 180, 117);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.699);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.texto-header {
+  padding: 20px;
+  border-bottom: 3px dotted rgb(73, 73, 73);
+  border-right: 3px dotted rgb(179, 219, 98);
+  border-radius: 50%;
+}
+header h2 {
+  font-size: 18px;
+  font-style: italic;
+  color: rgb(179, 219, 98);
+}
+
+.search__header{
+  width: 30%;
+  padding: 10px;
+  border-radius: 1.2rem;
+  border: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Body */
+body {
+  background-image: url("../static/img/background-patas.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+/* Menu */
+nav ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  list-style-type: none;
+}
+nav li {
+  padding: 5px 15px;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  background-color: rgb(179, 219, 98);
+}
+nav li:hover{
+  background-color: rgb(147, 192, 57);
+  color: white;
+}
+.login {
+  color: rgb(0, 0, 0);
+  background-color: rgb(179, 219, 98);
+  padding: 10px 20px;
+  box-shadow: 2px 2px 3px rgb(82, 82, 82);
+  transition: 0.2s;
+  margin-left: 30px;
+}
+.login:hover{
+  transform: translate(1%, 3%);
+  box-shadow: none;
+}
+header a {
+  text-decoration: none;
+}
+
+
+/* Main */
+main{
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  max-width: 90%;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 2px 2px 4px rgb(154, 154, 154);
+  border-radius: 15px;
+}
+
+.main__picture{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+  background-color: rgb(67, 67, 67);
+  color: white;
+  min-width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.main__form{
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  background-color: rgba(111, 180, 117, 0.372);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.main__form form{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 90%;
+  padding: 30px;
+}
+
+input[type="file"]{
+  background-color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: rgb(111, 180, 117);
+  font-size: x-small;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  background-color: rgb(241, 241, 241);
+  padding: 15px;
+  margin-bottom: 10px;
+  border: none;
+  color: rgb(111, 180, 117);
+  font-weight: bold;
+}
+
+.small{
+  font-size: smaller;
+}
+
+main img{
+  max-width: 100%;
+  width: 100px;
+  height: auto;
+  box-shadow: 2px 2px 3px rgb(98, 98, 98);
+  border-radius: 50%;
+}
+
+.botao__form{
+  background-color: rgb(111, 180, 117);
+  width: 30%;
+  border-radius: 5px;
+  margin-top: 15px;
+  padding: 10px 0;
+  border: none;
+  font-size: 1rem;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.botao__form:hover{
+  background-color: rgb(131, 199, 137);
+}
+
+
+footer {
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 30px;
+  background-color: rgb(34, 34, 34);
+}
+
+
+/* Media queries*/
+
+@media screen and (max-width: 800px){
+header{
+  justify-content: space-between;
+  gap: 20px;
+}
+.search__header{
+  width: 50%;
+}
+
+.main__container{
+  width: 80%;
+}
+}
+
+</style>
+<footer>
+  <p>Criado por alunos da Sirius | Todos os direitos reservados</p>
+</footer>
+</html>

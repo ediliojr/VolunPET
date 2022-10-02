@@ -1,0 +1,24 @@
+antes de comecar a usar o projeto
+de:
+git pull
+(para fazer download das atualizacoes feito pelo grupo)
+
+
+para subir no git:
+de:
+```
+git pull
+(para fazer download das atualizacoes feito pelo grupo)
+git add .
+(para adicionar toda os arquivos modificados)
+git commit -m "uma mensagem"
+(para comentar)
+
+git push
+(para subir as modificacoes no git)
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+para instalar as dependecias do projeto
+de:
+    pip install -r requirements.txt
+(vai instalar o que esta sendo utilizado)

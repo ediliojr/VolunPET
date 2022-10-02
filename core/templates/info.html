@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="\static\css\criar_post.css">
+  <title>Volunpet | Post</title>
+</head>
+<body>
+
+  <header>
+    <div class="texto-header">
+      <a href="/">
+        <h2>Volunpet</h2>
+      </a>
+    </div>
+    <input class="search__header" type="text" name="search" id="search" placeholder="Pesquisar...">
+    <nav>
+      <ul>
+        <li>Usuario : {{ user.username }}</li>
+        <li>Nome: {{ user.name }}</li>
+        <li>Email : {{ user.email }}</li>
+        <li>Postar {{ user.username }}</li>
+     
+      </ul>
+    </nav>
+  </header>
+
+  <h1>Criar post</h1>
+  <section class="main__container">
+
+    <main>
+      <div class="form-dados">
+        <h2>Crie o seu post aqui</h2>
+        <p>Dê o máximo de detalhes possível para que esse animalzinho possa ser ajudado!</p>
+      </div>
+
+      <form class="main__form" action="" id="f-criar-post">
+        <textarea required name="" id="f-criar-post" cols="80" rows="15" placeholder="Escreva seu texto aqui..." autofocus></textarea>
+
+        <label for="arquivos-form">Subir imagem</label>
+        <input type="file" name="arquivos-form" id="arquivos-form">
+
+        <button class="botao__form" type="submit" class="bt-postagem">Postar</button><br>
+        <label for="tags" class="tags">Tags:</label>
+        <input class="tag-input" type="text" name="tags_input">
+      </form>
+    </main>
+  </section>

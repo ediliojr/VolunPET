@@ -1,0 +1,105 @@
+{%load bootstrap5%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="\static/css/cadastro.css">
+    <title>Document</title>
+    {%bootstrap_css%}
+</head>
+<body>
+  <section class="cadastro">
+    <div class="container">
+        <h5 class="title__container"><a href="/" >HOME</a></h5>
+      <h2 class="title__container">Crie sua conta</h2>
+    <div class="container">
+        
+        <h1>Inscreva-se:</h1>
+       {% bootstrap_messages%}
+       {%for message in messages%}
+          <p><strong>{{message}}</strong></p>
+        {%endfor%}
+       <form action="/registre/submit" method="post" class="form" autocomplete="off" encrypte="multipart/form-data">
+        {% csrf_token %}
+        <label for="username"> Usuario </label><br>
+        <input type="text" name="username"  value=""><br>
+        <label for="first_name"> Nome </label><br>
+        <input type="text" name="first_name" name="first_name" value=""><br>
+        <label for="email"> Email </label><br>
+        <input type="email" name="email" name="email" value=""><br>
+        <label for="password1" > Senha </label><br>
+        <input type="password" name="password1" name="password1" value=""><br>
+        <label for="password2" > Confirme a Senha </label><br>
+        <input type="password" name="password2" name="password2" value=""><br>
+        <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+    </div>
+{%bootstrap_javascript%}
+{% comment %} <style>
+    *{
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      border: none;
+    }
+    .cadastro{
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      background-color: rgb(111, 180, 117);
+      justify-content: center;
+    }
+    .container{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 350px;
+      min-height: 50vh;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      background-color: rgb(192, 247, 194);
+      
+     
+    }
+    .title_container{
+      margin-top: 20px;
+      color: rgb(111, 180, 117);
+     
+      
+    }
+    .form_container{
+      display: flex;
+      flex-direction: column;
+
+
+    }
+    .inputs{
+      margin-bottom: 15px;
+      padding: 5px;
+      border-bottom: 1px solid rgb(111, 180, 117);
+      
+
+    }
+    .button-form{
+      background-color: rgb(111, 180, 117);
+      border: none;
+      height: 25px;
+      width: 30%;
+      border-radius: 20px;
+      transition: 0.2s;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+      
+    }
+    .button-form:hover{
+      transform: translate(1%, 3%);
+      box-shadow: none;
+    }
+  </style>
+
+</body>
+</html> {% endcomment %}

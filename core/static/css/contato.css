@@ -1,0 +1,315 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+body {
+  background-image: url("/componentes/images/background-patas.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: rgb(73, 73, 73);
+}
+
+/* Header */
+header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: rgb(111, 180, 117);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.699);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.texto-header {
+  padding: 20px;
+  border-bottom: 3px dotted rgb(73, 73, 73);
+  border-right: 3px dotted rgb(179, 219, 98);
+  border-radius: 50%;
+}
+/* a:link, a:visited,  a:hover, a:active */
+.texto-header a {
+  text-decoration: none;
+  text-decoration-style: none;
+
+}
+header h2 {
+  font-size: 18px;
+  font-style: italic;
+  color: rgb(179, 219, 98);
+}
+.search__header{
+  width: 30%;
+  padding: 10px;
+  border-radius: 1.2rem;
+  border: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Menu */
+nav ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  list-style-type: none;
+}
+nav li {
+  padding: 5px 15px;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  background-color: rgb(179, 219, 98);
+}
+nav li:hover{
+  background-color: rgb(195, 234, 117);
+}
+.login {
+  color: rgb(0, 0, 0);
+  background-color: rgb(179, 219, 98);
+  padding: 10px 20px;
+  box-shadow: 2px 2px 3px rgb(82, 82, 82);
+  transition: 0.2s;
+  margin-left: 30px;
+}
+.login:hover{
+  transform: translate(1%, 3%);
+  box-shadow: none;
+}
+nav a {
+  text-decoration: none;
+}
+
+/* Section */
+
+section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Main */
+.main__container{
+  max-width: 1300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
+  padding: 20px;
+}
+
+main h4{
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: white;
+}
+.contato__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 500px;
+  min-height: 600px;
+  padding: 20px;
+  background-color: rgb(67, 67, 67);
+  box-shadow: 3px 3px 4px rgb(187, 187, 187);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+}
+.form__container{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.form__container input{
+  padding: 15px;
+  font-size: 1rem;
+}
+.botao__formulario{
+  background-color: rgb(111, 180, 117);
+  width: 30%;
+  border-radius: 5px;
+}
+.botao__formulario:hover{
+  background-color: rgb(131, 199, 137);
+}
+.form__contato h4{
+  text-align: center;
+  font-size: 1.4rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+
+/* Footer */
+footer {
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 30px;
+  background-color: rgb(34, 34, 34);
+}
+
+
+/* Media queries*/
+
+@media screen and (max-width: 922px){
+  header{
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgb(111, 180, 117);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.699);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .texto-header {
+    padding: 20px;
+    border-bottom: 3px dotted rgb(73, 73, 73);
+    border-right: 3px dotted rgb(179, 219, 98);
+    border-radius: 50%;
+  }
+  /* a:link, a:visited,  a:hover, a:active */
+  .texto-header a {
+    text-decoration: none;
+    text-decoration-style: none;
+
+  }
+  header h2 {
+    font-size: 18px;
+    font-style: italic;
+    color: rgb(179, 219, 98);
+  }
+  .search__header{
+    width: 30%;
+    padding: 10px;
+    border-radius: 1.2rem;
+    border: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Menu */
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    list-style-type: none;
+  }
+  nav li {
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    background-color: rgb(179, 219, 98);
+  }
+  nav li:hover{
+    background-color: rgb(195, 234, 117);
+  }
+  .login {
+    color: rgb(0, 0, 0);
+    background-color: rgb(179, 219, 98);
+    padding: 10px 20px;
+    box-shadow: 2px 2px 3px rgb(82, 82, 82);
+    transition: 0.2s;
+    margin-left: 30px;
+  }
+  .login:hover{
+    transform: translate(1%, 3%);
+    box-shadow: none;
+  }
+  nav a {
+    text-decoration: none;
+  }
+
+  /* Section */
+
+  section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  /* Main */
+  .main__container{
+    max-width: 1300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+    padding: 20px;
+  }
+
+  main h4{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: white;
+  }
+  .contato__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+    min-height: 600px;
+    padding: 20px;
+    background-color: rgb(67, 67, 67);
+    box-shadow: 3px 3px 4px rgb(187, 187, 187);
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-radius: 5px;
+  }
+  .form__container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .form__container input{
+    padding: 15px;
+    font-size: 1rem;
+  }
+  .botao__formulario{
+    background-color: rgb(111, 180, 117);
+    width: 30%;
+    border-radius: 5px;
+  }
+  .botao__formulario:hover{
+    background-color: rgb(131, 199, 137);
+  }
+  .form__contato h4{
+    text-align: center;
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+
+  /* Footer */
+  footer {
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 30px;
+    background-color: rgb(34, 34, 34);
+  }
